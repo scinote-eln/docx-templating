@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
                       "Fill placeholders in a .docx template with plain values, HTML-formatted text " \
                       "(paragraphs, headings, inline styles, ul/ol lists), repeating table rows, " \
                       "checklists and images — handling Word's split-run placeholders."
-  spec.homepage    = "https://github.com/scinote-eln//docx-templating"
+  spec.homepage    = "https://github.com/scinote-eln/docx-templating"
   spec.license     = "MIT"
   spec.required_ruby_version = ">= 3.4"
 

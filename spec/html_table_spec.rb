@@ -49,4 +49,14 @@ RSpec.describe "add_text with HTML tables" do
     expect(foreign).to be_empty
     expect(doc.errors).to be_empty
   end
+
+  it "honors table and column width percentages" do
+    html = "<table style='width:99.9761%'><colgroup><col style='width:30%'><col style='width:70%'></colgroup><tr><td>a</td><td>b</td></tr></table>"
+    doc = document(render(tp("[BODY]")) { |r| r.add_text(:body, html) })
+    expect(doc.at_xpath("//w:tblW", NST)["w:type"]).to eq("pct")
+    expect(doc.at_xpath("//w:tblW", NST)["w:w"]).to eq("4999")
+    widths = doc.xpath("//w:tblGrid/w:gridCol", NST).map { |c| c["w:w"].to_i }
+    expect((widths[1].to_f / widths[0]).round(1)).to eq(2.3)
+  end
+
 end
