@@ -40,7 +40,7 @@ document.generate("out.docx")
 ## What it fills
 
 - **Fields** — `add_field(name, value)` replaces `[NAME]` with plain text. Placeholders that Word split across runs are handled by merging runs per paragraph.
-- **Texts** — `add_text(name, html)` replaces a placeholder paragraph with HTML-derived content: paragraphs, headings (`h1`–`h6` → Word `HeadingN` styles), inline `strong`/`b`, `em`/`i`, `u`, `br`, and `ul`/`ol` lists (including nested). Unknown/foreign tags are unwrapped (text kept) and HTML entities are decoded, so only valid WordprocessingML is produced.
+- **Texts** — `add_text(name, html)` replaces a placeholder paragraph with HTML-derived content: paragraphs, headings (`h1`–`h6` → Word `HeadingN` styles), inline `strong`/`b`, `em`/`i`, `u`, `br`, and `ul`/`ol` lists (including nested). Unknown/foreign tags are unwrapped (text kept) and HTML entities are decoded, so only valid WordprocessingML is produced, and HTML `<table>` (with `th`/`thead` headers, `colspan`, and alignment) into native Word tables.
 - **Tables** — `add_table(name, collection) { |t| t.add_column(:field) }` repeats the template row that contains the column placeholders, once per record.
 - **Tables from data** — `add_table_from_data(name, data)` builds a whole table at a placeholder from structured/JSON data (`contents` 2D array, optional `columns_title`, `rows_title`, and per-cell `cells_attributes` styles). No template row needed; when the placeholder sits inside text the paragraph is split around the inserted table.
 - **Checklists** — `add_checklist(name, items)` renders one paragraph per item prefixed with ☑ / ☐. Items may be `{text:, checked:}` hashes, `[text, checked]` arrays, objects responding to `#text`/`#checked`, or bare strings.
