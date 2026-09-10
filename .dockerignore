@@ -1,0 +1,6 @@
+.git
+.gitignore
+*.gem
+/coverage
+/tmp
+/pkg

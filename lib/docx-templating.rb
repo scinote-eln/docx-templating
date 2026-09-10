@@ -1,0 +1,20 @@
+require_relative "docx_templating/version"
+require_relative "docx_templating/errors"
+require_relative "docx_templating/namespaces"
+require_relative "docx_templating/configuration"
+require_relative "docx_templating/template"
+require_relative "docx_templating/wml"
+require_relative "docx_templating/data_source"
+require_relative "docx_templating/field"
+require_relative "docx_templating/parser/html"
+require_relative "docx_templating/text"
+require_relative "docx_templating/checklist"
+require_relative "docx_templating/image"
+require_relative "docx_templating/inline_image"
+require_relative "docx_templating/table"
+require_relative "docx_templating/table_from_data"
+require_relative "docx_templating/composable"
+require_relative "docx_templating/document"
+
+module DocxTemplating
+end
